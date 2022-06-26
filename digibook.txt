@@ -1,0 +1,150 @@
+SQL> create table Loginform;
+create table Loginform
+                     *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> create table Loginform(Username Varchar2(20) primary key,Password varchar(20));
+
+Table created.
+
+SQL> create table Register(Username varchar2(20),Gender varchar2(8),Contact_no number(10),Password varchar2(20),Address varchar2(20));
+
+Table created.
+
+SQL> alter table Loginform add primary key(Username);
+alter table Loginform add primary key(Username)
+                          *
+ERROR at line 1:
+ORA-02260: table can have only one primary key 
+
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+USERS                          TABLE                                            
+TUTOR                          TABLE                                            
+TOPICS                         TABLE                                            
+TESTS                          TABLE                                            
+STUDENTS                       TABLE                                            
+STUDENTA                       TABLE                                            
+STUDENT                        TABLE                                            
+STAFF                          TABLE                                            
+SCORES                         TABLE                                            
+SCORE                          TABLE                                            
+SAMPLE                         TABLE                                            
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+SAILORS1                       TABLE                                            
+SAILOR                         TABLE                                            
+RESERVES1_VIEW                 VIEW                                             
+RESERVES1                      TABLE                                            
+REGISTER                       TABLE                                            
+PERSON                         TABLE                                            
+LOGINFORM                      TABLE                                            
+ITEMS                          TABLE                                            
+EMP_DEMO                       TABLE                                            
+EMPLOYEES                      TABLE                                            
+DEPARTMENT                     TABLE                                            
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+CUSTOMER                       TABLE                                            
+BOATS1                         TABLE                                            
+BOAT                           TABLE                                            
+BIN$jWBSx8CuTLKTkC+lWQTMOg==$0 TABLE                                            
+BIN$Wh8uukJzReSRJ6LSDMTRGg==$0 TABLE                                            
+BIN$MBvGEaTDQF6GXEJbyYtk6A==$0 TABLE                                            
+BIN$4tdwuMpzT6uEejiaYbEUQA==$0 TABLE                                            
+
+29 rows selected.
+
+SQL> desc Loginform;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERNAME                                  NOT NULL VARCHAR2(20)
+ PASSWORD                                           VARCHAR2(20)
+
+SQL> desc Register;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERNAME                                           VARCHAR2(20)
+ GENDER                                             VARCHAR2(8)
+ CONTACT_NO                                         NUMBER(10)
+ PASSWORD                                           VARCHAR2(20)
+ ADDRESS                                            VARCHAR2(20)
+
+SQL> insert into Loginform values('Suresh','Skipper');
+
+1 row created.
+
+SQL> insert into Loginform values('Rakesh','raki');
+
+1 row created.
+
+SQL> insert into Loginform values('Srujan','Sruj');
+
+1 row created.
+
+SQL> insert into Loginform values('Anjan','Editor');
+
+1 row created.
+
+SQL> insert into Register values('Anjan','Male',9876543210,'Editor','Hyd');
+
+1 row created.
+
+SQL> insert into Register values('Srujan','Male',0123456789,'Sruj','Hyd');
+
+1 row created.
+
+SQL> insert into Register values('Rakesh','Male',9052545590,'Raki','Hyd');
+
+1 row created.
+
+SQL> insert into Register values('Srujan','Male',8765432109,'Skipper','Nalgonda');
+
+1 row created.
+
+SQL> select * from Loginform
+  2  ;
+
+USERNAME             PASSWORD                                                   
+-------------------- --------------------                                       
+Suresh               Skipper                                                    
+Rakesh               raki                                                       
+Srujan               Sruj                                                       
+Anjan                Editor                                                     
+
+SQL> select * from Register;
+
+USERNAME             GENDER   CONTACT_NO PASSWORD                               
+-------------------- -------- ---------- --------------------                   
+ADDRESS                                                                         
+--------------------                                                            
+Anjan                Male     9876543210 Editor                                 
+Hyd                                                                             
+                                                                                
+Srujan               Male      123456789 Sruj                                   
+Hyd                                                                             
+                                                                                
+Rakesh               Male     9052545590 Raki                                   
+Hyd                                                                             
+                                                                                
+
+USERNAME             GENDER   CONTACT_NO PASSWORD                               
+-------------------- -------- ---------- --------------------                   
+ADDRESS                                                                         
+--------------------                                                            
+Srujan               Male     8765432109 Skipper                                
+Nalgonda                                                                        
+                                                                                
+
+SQL> commit;
+
+Commit complete.
+
+SQL> spool off;
